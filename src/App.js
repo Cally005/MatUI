@@ -1,33 +1,25 @@
 import React from 'react';
-import Button from '@mui/material/Button';
-import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
-import { styled, Typography } from '@mui/material';
-import {theme}  from './theme';
+import Sidebar from './components/Sidebar';
+import Feed from './components/Feed';
+import Rightbar from './components/Rightbar';
+import { Box, Stack } from '@mui/material';
+import Navbar from './components/Navbar';
+
 function App() {
 
-  const MyButton = styled(Button)(({theme})=>({
-    backgroundColor:theme.palette.primary,
-    margin:10,
-    "&:hover":{
-      backgroundColor:"red"
-    },
-
-
-  }));
-
+ 
 
 
   return (
-    <div>
-   <Button color='primary' variant="text">Text</Button>
-   <Button color="otherColor"  startIcon={< SettingsApplicationsIcon/>} variant="contained">Contained</Button>
-  <Button variant="outlined"  disabled >Outlined</Button>
-  <Typography variant="h1" component="p">
-    it uses h1 style but it is a p tag
-</Typography>
-
-<MyButton>my button</MyButton>
-    </div>
+    <Box>
+      <Navbar/>
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+      <Sidebar/>
+      <Feed/>
+      <Rightbar/>
+      </Stack>
+  
+    </Box>
   );
 }
 
